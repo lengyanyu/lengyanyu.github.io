@@ -1,0 +1,90 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width: 100%;
+				height:100%;
+			}
+			body{
+				background: url(img/bg2.jpg);
+				background-size: 100%;
+			}
+			div{
+				width: 280px;
+				height: 400px;
+				position: fixed;
+				top: 0;
+				left:0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				transform-style: preserve-3d;
+				animation: play 60s linear infinite;
+			}
+			
+			div img{
+				width: 280px;
+				height:400px;
+				position: absolute;
+			}
+			
+div img:nth-child(1){transform: rotateY(0deg) translatez(650px);}
+div img:nth-child(2){transform: rotateY(36deg) translatez(650px);}
+div img:nth-child(3){transform: rotateY(72deg) translatez(650px);}
+div img:nth-child(4){transform: rotateY(108deg) translatez(650px);}
+div img:nth-child(5){transform: rotateY(144deg) translatez(650px);}
+div img:nth-child(6){transform: rotateY(180deg) translatez(650px);}
+div img:nth-child(7){transform: rotateY(216deg) translatez(650px);}
+div img:nth-child(8){transform: rotateY(252deg) translatez(650px);}
+div img:nth-child(9){transform: rotateY(288deg) translatez(650px);}
+div img:nth-child(10){transform: rotateY(324deg) translatez(650px);}
+			
+			
+			
+			
+			
+			@keyframes play{
+				0%{transform: rotateX(0deg) rotateY(0deg);}
+				25%{transform: rotateX(20deg) rotateY(180deg);}
+				50%{transform: rotateX(0deg) rotateY(360deg);}
+				75%{transform: rotateX(-20deg) rotateY(540deg);}
+				100%{transform: rotateX(0deg) rotateY(720deg);}
+			}
+			
+			
+			
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		<div>
+			<img src="img/pic1.jpg" />
+			<img src="img/pic2.png" />
+			<img src="img/pic3.png" />
+			<img src="img/pic4.png" />
+			<img src="img/pic5.jpg" />
+			<img src="img/pic6.png" />
+			<img src="img/pic7.png" />
+			<img src="img/pic8.png" />
+			<img src="img/pic9.png" />
+			<img src="img/pic10.png" />
+		</div>
+		<audio src="audio/aaaaa.mp3" autoplay="autoplay"></audio>
+		<img src="img/a.gif" class="love" />
+	</body>
+</html>
