@@ -4,6 +4,99 @@
 
 layout: home
 ---
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width: 100%;
+				height:100%;
+			}
+			body{
+				background: url(img/bg2.jpg);
+				background-size: 100%;
+			}
+			div{
+				width: 280px;
+				height: 400px;
+				position: fixed;
+				top: 0;
+				left:0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				transform-style: preserve-3d;
+				animation: play 60s linear infinite;
+			}
+			
+			div img{
+				width: 280px;
+				height:400px;
+				position: absolute;
+			}
+			
+div img:nth-child(1){transform: rotateY(0deg) translatez(650px);}
+div img:nth-child(2){transform: rotateY(36deg) translatez(650px);}
+div img:nth-child(3){transform: rotateY(72deg) translatez(650px);}
+div img:nth-child(4){transform: rotateY(108deg) translatez(650px);}
+div img:nth-child(5){transform: rotateY(144deg) translatez(650px);}
+div img:nth-child(6){transform: rotateY(180deg) translatez(650px);}
+div img:nth-child(7){transform: rotateY(216deg) translatez(650px);}
+div img:nth-child(8){transform: rotateY(252deg) translatez(650px);}
+div img:nth-child(9){transform: rotateY(288deg) translatez(650px);}
+div img:nth-child(10){transform: rotateY(324deg) translatez(650px);}
+			
+			@keyframes play{
+				0%{transform: rotateX(0deg) rotateY(0deg);}
+				25%{transform: rotateX(20deg) rotateY(180deg);}
+				50%{transform: rotateX(0deg) rotateY(360deg);}
+				75%{transform: rotateX(-20deg) rotateY(540deg);}
+				100%{transform: rotateX(0deg) rotateY(720deg);}
+			}
+	
+		</style>
+	
+
+<div class="left">
+        <h1>Welcome to lengyanyu's blog </h1>
+        <small>这里是我的个人IT学习小天地</small>
+        <hr>
+        <ul>
+        	<!--遍历分页后的文章-->
+           {% for post in paginator.posts %}
+  		   <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+ 		   <p class="author">
+           	<span class="date">{{ post.date }}</span>
+           </p>
+    	   <div class="content">
+    	   {{ post.content }}
+  		   {% endfor %}
+        </ul>
+</div>
+<div>
+			<img src="img/pic1.jpg" />
+			<img src="img/pic2.png" />
+			<img src="img/pic3.png" />
+			<img src="img/pic4.png" />
+			<img src="img/pic5.jpg" />
+			<img src="img/pic6.png" />
+			<img src="img/pic7.png" />
+			<img src="img/pic8.png" />
+			<img src="img/pic9.png" />
+			<img src="img/pic10.png" />
+</div>
+<audio src="raw/aaaaa.mp3" autoplay="autoplay"></audio>
+<img src="img/a.gif" class="love" />
+
+
+
 <div class="page clearfix" index>
     <div class="left">
         <h1>Welcome to lengyanyu's blog </h1>
@@ -25,7 +118,7 @@ layout: home
 
 
 
-        <!-- Pagination links分页链接 -->
+       <!--  <!-- Pagination links分页链接 -->
         <div class="pagination">
           <!--生成一个跳转到上一页的按钮-->	
           {% if paginator.previous_page %}
@@ -82,62 +175,4 @@ layout: home
                     {% endfor %}
                 </ul>
             </div>
-            <!-- 其他div框放到这里 -->
-            <div class="side">
-                <div>
-                    <i class="fa fa-tags"></i>
-                    Tags
-                </div>
-                <div class="tags-cloud">
-                    {% assign first = site.tags.first %}
-                    {% assign max = first[1].size %}
-                    {% assign min = max %}
-                    {% for tag in site.tags offset:1 %}
-                      {% if tag[1].size > max %}
-                        {% assign max = tag[1].size %}
-                      {% elsif tag[1].size < min %}
-                        {% assign min = tag[1].size %}
-                      {% endif %}
-                    {% endfor %}
-
-                    {% if max == min %}
-                        {% assign diff = 1 %}
-                    {% else %}
-                        {% assign diff = max | minus: min %}
-                    {% endif %}
-
-                    {% for tag in site.tags %}
-                      {% assign temp = tag[1].size | minus: min | times: 36 | divided_by: diff %}
-                      {% assign base = temp | divided_by: 4 %}
-                      {% assign remain = temp | modulo: 4 %}
-                      {% if remain == 0 %}
-                        {% assign size = base | plus: 9 %}
-                      {% elsif remain == 1 or remain == 2 %}
-                        {% assign size = base | plus: 9 | append: '.5' %}
-                      {% else %}
-                        {% assign size = base | plus: 10 %}
-                      {% endif %}
-                      {% if remain == 0 or remain == 1 %}
-                        {% assign color = 9 | minus: base %}
-                      {% else %}
-                        {% assign color = 8 | minus: base %}
-                      {% endif %}
-                      <a href="{{ root_url }}/{{ site.tag_dir }}#{{ tag[0] }}" style="font-size: {{ size }}pt; color: #{{ color }}{{ color }}{{ color }};">{{ tag[0] }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- <div class="side">
-                <div>
-                    <i class="fa fa-external-link"></i>
-                    Links
-                </div>
-                <ul  class="content-ul">
-
-                </ul>
-            </div> -->
-        </div>
-    </div>
-</div>
-<!-- <script src="{{ "/js/scroll.min.js " | prepend: site.baseurl }}" charset="utf-8"></script> -->
-<!-- <script src="{{ "/js/pageContent.js " | prepend: site.baseurl }}" charset="utf-8"></script> -->
+           
